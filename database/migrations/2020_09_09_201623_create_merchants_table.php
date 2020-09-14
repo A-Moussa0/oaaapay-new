@@ -15,6 +15,13 @@ class CreateMerchantsTable extends Migration
     {
         Schema::create('merchants', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('email', 100)->unique();
+            $table->string('password');
+            $table->string('industry_id', 100);
+            $table->foreign('industry_id')->references('id')->on('industries');
+            $table->tinyInteger('exclusivepoints_enabled')->default(0);
+            $table->timestamp('onboard_date')->nullable();
             $table->timestamps();
         });
     }
