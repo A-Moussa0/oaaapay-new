@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('mobile', 45)->unique()->nullable();
             $table->tinyInteger('membership_id')->default(1);
+            $table->foreign('membership_id')->references('id')->on('memberships');
             $table->integer('points_balance')->default(0);
             $table->integer('pending_points_balance')->default(0);
             $table->integer('total_commissions')->default(0);
