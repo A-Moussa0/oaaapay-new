@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('total_commissions')->default(0);
             $table->integer('pending_commissions')->default(0);
             $table->integer('withdrawn_points')->default(0);
-            $table->dateTime('last_active')->nullable();
+            $table->timestamp('last_active')->nullable();
             $table->tinyInteger('suspended')->default(0);
             $table->smallInteger('total_ads_watched')->default(0);
             $table->tinyInteger('pioneer')->default(0);
@@ -39,7 +39,6 @@ class CreateUsersTable extends Migration
             $table->smallInteger('surveys_completed')->default(0);
             $table->string('signup_ip', 130);
             $table->string('username', 255)->nullable();
-            $table->dateTime('registration_date')->nullable();
             $table->tinyInteger('automatic_withdrawal')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('mobile_verified_at')->nullable();
