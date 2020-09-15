@@ -17,11 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('referrer_id')->nullable();
             $table->foreign('referrer_id')->references('id')->on('users');
+            $table->unsignedBigInteger('membership_id')->default(1);
             $table->string('email', 100)->unique();
             $table->string('password');
             $table->string('mobile', 45)->unique()->nullable();
-            $table->tinyInteger('membership_id')->default(1);
-            $table->foreign('membership_id')->references('id')->on('memberships');
             $table->integer('points_balance')->default(0);
             $table->integer('pending_points_balance')->default(0);
             $table->integer('total_commissions')->default(0);
