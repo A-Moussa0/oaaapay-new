@@ -15,6 +15,9 @@ class CreateExclusivepointMerchantUserTable extends Migration
     {
         Schema::create('exclusivepoint_merchant_user', function (Blueprint $table) {
             $table->id();
+            $table->unsignedbigInteger('user_id');
+            $table->unsignedbigInteger('merchant_id');
+            $table->integer('points')->unsigned();
             $table->timestamps();
         });
     }
