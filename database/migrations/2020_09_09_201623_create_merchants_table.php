@@ -18,8 +18,7 @@ class CreateMerchantsTable extends Migration
             $table->string('name', 100);
             $table->string('email', 100)->unique();
             $table->string('password');
-            $table->string('industry_id', 100);
-            $table->foreign('industry_id')->references('id')->on('industries');
+            $table->unsignedBigInteger('industry_id');
             $table->tinyInteger('exclusivepoints_enabled')->default(0);
             $table->timestamp('onboard_date')->nullable();
             $table->timestamps();
