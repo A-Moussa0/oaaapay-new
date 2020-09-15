@@ -15,6 +15,18 @@ class CreateThirdPartiesTable extends Migration
     {
         Schema::create('third_parties', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100)->nullable();
+            $table->tinyInteger('has_tasks');
+            $table->tinyInteger('has_surveys');
+            $table->tinyInteger('commission_percentage')->unsigned();
+            $table->string('payment_method', 100);
+            $table->string('payment_term', 100);
+            $table->decimal('total_revenue_usd', 15, 4)->nullable()->default(0);
+            $table->decimal('current_revenue_usd', 15, 4)->nullable()->default(0);
+            $table->decimal('last_month_revenue_usd', 15, 4)->nullable()->default(0);
+            $table->tinyInteger('disabled')->default(1);
+            $table->string('icon', 100)->nullable();
+            $table->string('logo', 100)->nullable();
             $table->timestamps();
         });
     }
