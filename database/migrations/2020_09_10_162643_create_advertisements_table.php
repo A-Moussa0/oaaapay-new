@@ -15,6 +15,25 @@ class CreateAdvertisementsTable extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('type_id');
+            $table->string('name', 100);
+            $table->string('description', 255);
+            $table->integer('click_count')->unsigned()->default(0);
+            $table->integer('completed_count')->unsigned()->default(0);
+            $table->timestamp('approve_date')->nullable();
+            $table->tinyInteger('paused')->default(1);
+            $table->integer('remaining_views')->nullable();
+            $table->json('gender')->nullable();
+            $table->tinyInteger('minimum_age')->nullable();
+            $table->tinyInteger('maximum_age')->nullable();
+            $table->string('url', 1999);
+            $table->string('media_url', 1999);
+            $table->json('country_filter')->nullable();
+            $table->tinyInteger('premium')->default(0);
+            $table->smallInteger('reward')->unsigned();
+            $table->smallInteger('packagable_id');
+            $table->string('packagable_type', 100);
             $table->timestamps();
         });
     }

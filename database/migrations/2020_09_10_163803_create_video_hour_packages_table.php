@@ -15,6 +15,9 @@ class CreateVideoHourPackagesTable extends Migration
     {
         Schema::create('video_hour_packages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('duration_id');
+            $table->smallInteger('hours')->unsigned();
+            $table->integer('cost_points')->unsigned();
             $table->timestamps();
         });
     }

@@ -15,11 +15,12 @@ class CreateMerchantsTable extends Migration
     {
         Schema::create('merchants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('industry_id');
             $table->string('name', 100);
             $table->string('email', 100)->unique();
             $table->string('password');
-            $table->unsignedBigInteger('industry_id');
             $table->tinyInteger('exclusivepoints_enabled')->default(0);
+            $table->tinyInteger('exclusivepoints_percentage')->unsigned()->nullable();
             $table->timestamp('onboard_date')->nullable();
             $table->timestamps();
         });

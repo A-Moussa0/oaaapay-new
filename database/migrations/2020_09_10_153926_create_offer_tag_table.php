@@ -15,6 +15,8 @@ class CreateOfferTagTable extends Migration
     {
         Schema::create('offer_tag', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
         });
     }

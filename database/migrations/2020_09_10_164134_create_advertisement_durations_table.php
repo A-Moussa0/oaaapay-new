@@ -15,6 +15,7 @@ class CreateAdvertisementDurationsTable extends Migration
     {
         Schema::create('advertisement_durations', function (Blueprint $table) {
             $table->id();
+            $table->integer('seconds')->unsigned();
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateFavoriteOfferUserTable extends Migration
     {
         Schema::create('favorite_offer_user', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('offer_id');
             $table->timestamps();
         });
     }

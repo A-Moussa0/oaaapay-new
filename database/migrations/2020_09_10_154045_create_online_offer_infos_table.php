@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppenInitializesTable extends Migration
+class CreateOnlineOfferInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateAppenInitializesTable extends Migration
      */
     public function up()
     {
-        Schema::create('appen_initializes', function (Blueprint $table) {
+        Schema::create('online_offer_infos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('offer_id');
+            $table->string('url', 1999);
+            $table->string('terms_conditions', 7999)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateAppenInitializesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appen_initializes');
+        Schema::dropIfExists('online_offer_infos');
     }
 }

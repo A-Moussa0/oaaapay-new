@@ -15,6 +15,11 @@ class CreateMerchantStoresTable extends Migration
     {
         Schema::create('merchant_stores', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('merchant_id');
+            $table->string('street_name', 100);
+            $table->string('building_number', 100);
+            $table->string('governoment', 100);
+            $table->string('phone_number', 100)->nullable();
             $table->timestamps();
         });
     }

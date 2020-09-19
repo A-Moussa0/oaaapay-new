@@ -15,6 +15,19 @@ class CreateThirdpartySurveyRecordsTable extends Migration
     {
         Schema::create('thirdparty_survey_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('thirdparty_survey_id');
+            $table->string('transaction_id', 255)->unique();
+            $table->string('uuid', 255)->unique();
+            $table->string('action', 45);
+            $table->string('ip', 130)->nullable();
+            $table->smallInteger('reward');
+            $table->string('status', 45)->nullable();
+            $table->timestamp('credit_date');
+            $table->timestamp('decline_date')->nullable();
+            $table->smallInteger('duration')->nullable();
+            $table->tinyInteger('rating')->nullable();
+            $table->tinyInteger('rating_count')->nullable();
             $table->timestamps();
         });
     }

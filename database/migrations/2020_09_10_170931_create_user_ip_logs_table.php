@@ -15,6 +15,8 @@ class CreateUserIpLogsTable extends Migration
     {
         Schema::create('user_ip_logs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('ip', 130);
             $table->timestamps();
         });
     }

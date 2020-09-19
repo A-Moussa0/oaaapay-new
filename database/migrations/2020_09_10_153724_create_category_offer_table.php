@@ -15,6 +15,8 @@ class CreateCategoryOfferTable extends Migration
     {
         Schema::create('category_offer', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class CreateIndustriesTable extends Migration
     {
         Schema::create('industries', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100)->unique();
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreateAdvertisementRecordsTable extends Migration
     {
         Schema::create('advertisement_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('advertisement_id');
+            $table->smallInteger('reward')->unsigned();
             $table->timestamps();
         });
     }

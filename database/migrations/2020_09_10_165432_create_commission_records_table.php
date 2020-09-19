@@ -15,6 +15,16 @@ class CreateCommissionRecordsTable extends Migration
     {
         Schema::create('commission_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('referral_id');
+            $table->integer('sourcable_id');
+            $table->string('sourcable_type', 100);
+            $table->smallInteger('amount_points');
+            $table->smallInteger('percentage'); // Total Percentage from the offer cost/receipt. (calculated by multiplying the dynamic percentage defined in admin panel for offer commissions * the specific cashback percentage of an offer)
+            $table->uuid('uuid');
+            $table->string('status', 100);
+            $table->timestamp('credit_date');            
+            $table->timestamp('decline_date')->nullable();            
             $table->timestamps();
         });
     }

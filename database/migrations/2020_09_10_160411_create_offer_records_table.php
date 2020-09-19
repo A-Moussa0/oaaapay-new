@@ -15,6 +15,12 @@ class CreateOfferRecordsTable extends Migration
     {
         Schema::create('offer_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('offer_id');
+            $table->integer('points_used')->unsigned()->nullable();
+            $table->integer('execlusive_points_used')->unsigned()->nullable();
+            $table->integer('cashback_points')->unsigned();
+            $table->integer('exclusive_cashback_points')->unsigned()->nullable();
             $table->timestamps();
         });
     }

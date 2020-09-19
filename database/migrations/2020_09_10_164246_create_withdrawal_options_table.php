@@ -15,6 +15,11 @@ class CreateWithdrawalOptionsTable extends Migration
     {
         Schema::create('withdrawal_options', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->integer('minimum_point')->unsigned();
+            $table->tinyInteger('enabled')->default(0);
+            $table->smallInteger('delivery_days')->unsigned();
+            $table->tinyInteger('automated');
             $table->timestamps();
         });
     }

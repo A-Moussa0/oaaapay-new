@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOnlineOffersInfoTable extends Migration
+class CreateOfferMediasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateOnlineOffersInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('online_offers_info', function (Blueprint $table) {
+        Schema::create('offer_medias', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('offer_id');
+            $table->string('type', 100);
+            $table->string('url', 1999);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateOnlineOffersInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('online_offers_info');
+        Schema::dropIfExists('offer_medias');
     }
 }

@@ -15,6 +15,10 @@ class CreateAccountManagersTable extends Migration
     {
         Schema::create('account_managers', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('email', 100)->unique();
+            $table->string('mobile_number', 100)->unique();
+            $table->smallInteger('clients_count')->nullable()->default(0);
             $table->timestamps();
         });
     }

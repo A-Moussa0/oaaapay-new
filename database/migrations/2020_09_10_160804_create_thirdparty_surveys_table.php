@@ -15,6 +15,12 @@ class CreateThirdpartySurveysTable extends Migration
     {
         Schema::create('thirdparty_surveys', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('thirdparty_id');
+            $table->string('name', 100);
+            $table->smallInteger('reward');
+            $table->string('country', 100)->nullable();
+            $table->decimal('payout_usd', 15, 4);
+            $table->string('url', 1999);
             $table->timestamps();
         });
     }

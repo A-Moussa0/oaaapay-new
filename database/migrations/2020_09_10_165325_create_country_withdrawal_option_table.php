@@ -15,6 +15,8 @@ class CreateCountryWithdrawalOptionTable extends Migration
     {
         Schema::create('country_withdrawal_option', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('withdrawal_option_id');
+            $table->unsignedBigInteger('country_id');
             $table->timestamps();
         });
     }

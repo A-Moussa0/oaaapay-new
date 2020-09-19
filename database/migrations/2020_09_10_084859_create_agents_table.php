@@ -15,6 +15,9 @@ class CreateAgentsTable extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
+            $table->integer('login_id')->unsigned()->unique();
+            $table->string('password', 100);
+            $table->unsignedBigInteger('merchant_id');
             $table->timestamps();
         });
     }

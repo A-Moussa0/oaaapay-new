@@ -15,6 +15,10 @@ class CreateFeedbackSurveysTable extends Migration
     {
         Schema::create('feedback_surveys', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('offer_id');
+            $table->string('host_survey_id', 255);
+            $table->string('survey_name', 255);
+            $table->integer('response_count')->unsigned();
             $table->timestamps();
         });
     }

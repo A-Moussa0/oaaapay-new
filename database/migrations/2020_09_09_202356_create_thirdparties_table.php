@@ -13,7 +13,7 @@ class CreateThirdPartiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('third_parties', function (Blueprint $table) {
+        Schema::create('thirdparties', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->nullable();
             $table->tinyInteger('has_tasks');

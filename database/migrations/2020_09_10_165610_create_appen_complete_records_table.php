@@ -15,6 +15,14 @@ class CreateAppenCompleteRecordsTable extends Migration
     {
         Schema::create('appen_complete_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('appen_initialize_id');
+            $table->timestamp('generated_at');
+            $table->string('action', 45);
+            $table->string('ip', 130);
+            $table->smallInteger('reward');
+            $table->smallInteger('payout_usd');
+            $table->string('job_title', 255);
             $table->timestamps();
         });
     }

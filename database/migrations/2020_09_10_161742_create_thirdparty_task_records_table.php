@@ -15,6 +15,17 @@ class CreateThirdpartyTaskRecordsTable extends Migration
     {
         Schema::create('thirdparty_task_records', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('thirdparty_task_id');
+            $table->string('transaction_id', 255)->unique();
+            $table->string('uuid', 255)->unique();
+            $table->string('action', 45);
+            $table->string('ip', 130)->nullable();
+            $table->smallInteger('reward');
+            $table->string('status', 45)->nullable();
+            $table->timestamp('credit_date');
+            $table->timestamp('decline_date')->nullable();
+            $table->integer('complete_count')->nullable();
             $table->timestamps();
         });
     }

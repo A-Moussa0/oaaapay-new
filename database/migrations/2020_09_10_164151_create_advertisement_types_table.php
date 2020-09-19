@@ -15,6 +15,7 @@ class CreateAdvertisementTypesTable extends Migration
     {
         Schema::create('advertisement_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100)->unique();
             $table->timestamps();
         });
     }

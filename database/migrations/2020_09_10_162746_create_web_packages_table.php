@@ -15,6 +15,9 @@ class CreateWebPackagesTable extends Migration
     {
         Schema::create('web_packages', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('duration_id');
+            $table->integer('views')->unsigned();
+            $table->integer('cost_points')->unsigned();
             $table->timestamps();
         });
     }

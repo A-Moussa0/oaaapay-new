@@ -15,6 +15,8 @@ class CreateManagerMerchantTable extends Migration
     {
         Schema::create('manager_merchant', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('merchant_id');
+            $table->unsignedBigInteger('manager_id');
             $table->timestamps();
         });
     }
