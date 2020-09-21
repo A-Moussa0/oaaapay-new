@@ -16,6 +16,7 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('merchant_id');
+            $table->unsignedBigInteger('offer_type_id');
             $table->string('name', 100);
             $table->timestamp('expire_date')->nullable();
             $table->smallInteger('favorite_count')->nullable();
