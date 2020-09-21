@@ -14,6 +14,7 @@ class AddOffersForeignKeys extends Migration
     {
         Schema::table('offers', function (Blueprint $table) {
             $table->foreign('merchant_id')->references('id')->on('merchants');
+            $table->foreign('offer_type_id')->references('id')->on('offer_types');
         });
     }
 
@@ -26,6 +27,7 @@ class AddOffersForeignKeys extends Migration
     {
         Schema::table('offers', function (Blueprint $table) {
             $table->dropForeign(['merchant_id']);
+            $table->dropForeign(['offer_type_id']);
         });
     }
 }
