@@ -23,7 +23,6 @@ class CreateOffersTable extends Migration
             $table->tinyInteger('is_delivery')->default(0);
             $table->tinyInteger('is_store')->default(0);
             $table->tinyInteger('disabled')->default(1);
-            $table->string('type', 45);
             $table->smallInteger('cost')->nullable();
             $table->tinyInteger('multiple_use')->default(0);
             $table->integer('cashback_percentage')->unsigned();
