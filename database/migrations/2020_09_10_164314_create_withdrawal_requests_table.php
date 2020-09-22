@@ -19,6 +19,10 @@ class CreateWithdrawalRequestsTable extends Migration
             $table->unsignedBigInteger('withdrawal_option_id');
             $table->unsignedBigInteger('user_withdrawal_info_id');
             $table->integer('amount_points')->unsigned();
+            $table->timestamp('delivery_date');
+            $table->string('status', 45)->default('Pending');
+            $table->string('decline_reason', 255)->nullable();
+            $table->json('notes')->nullable();
             $table->timestamps();
         });
     }
