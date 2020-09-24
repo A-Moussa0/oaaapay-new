@@ -17,6 +17,7 @@ class CreateOffersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('merchant_id');
             $table->unsignedBigInteger('offer_type_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('name', 100);
             $table->timestamp('expire_date')->nullable();
             $table->smallInteger('favorite_count')->nullable();
