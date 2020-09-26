@@ -25,8 +25,8 @@ class CreateThirdPartiesTable extends Migration
             $table->decimal('current_revenue_usd', 15, 4)->nullable()->default(0);
             $table->decimal('last_month_revenue_usd', 15, 4)->nullable()->default(0);
             $table->tinyInteger('disabled')->default(1);
-            $table->string('icon', 100)->nullable();
-            $table->string('logo', 100)->nullable();
+            $table->string('icon', 1999)->nullable();
+            $table->string('logo', 1999)->nullable();
             $table->timestamps();
         });
     }
