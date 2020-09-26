@@ -24,7 +24,7 @@ class CreateThirdpartyTaskRecordsTable extends Migration
             $table->smallInteger('reward');
             $table->string('status', 45)->nullable();
             $table->timestamp('credit_date');
-            $table->timestamp('decline_date')->nullable();
+            $table->timestamp('declined_at')->nullable();
             $table->integer('complete_count')->nullable();
             $table->timestamps();
         });
