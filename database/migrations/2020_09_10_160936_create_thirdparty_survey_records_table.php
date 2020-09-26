@@ -24,7 +24,7 @@ class CreateThirdpartySurveyRecordsTable extends Migration
             $table->smallInteger('reward');
             $table->string('status', 45)->nullable();
             $table->timestamp('credit_date');
-            $table->timestamp('decline_date')->nullable();
+            $table->timestamp('declined_at')->nullable();
             $table->smallInteger('duration')->nullable();
             $table->tinyInteger('rating')->nullable();
             $table->tinyInteger('rating_count')->nullable();
