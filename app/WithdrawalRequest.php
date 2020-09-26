@@ -12,7 +12,7 @@ class WithdrawalRequest extends Model
         * @var array
     */
     protected $fillable = [
-        'user_id', 'withdrawal_option_id', 'user_withdrawal_info', 'delivery_date', 'amount_points', 'status',
+        'user_id', 'withdrawal_option_id', 'user_withdrawal_info', 'delivery_date', 'amount_points', 'status', 'decline_reason', 'notes'
     ];
 
     public function user()
@@ -22,11 +22,13 @@ class WithdrawalRequest extends Model
 
     public function withdrawalOption()
     {
-        return $this->hasOne('App\WithdrawalOption');
+        return $this->belongsTo('App\WithdrawalOption');
     }
     
     public function withdrawalInfo()
     {
-        return $this->hasOne('App\UserWithdrawalInfo');
+        return $this->belongsTo('App\UserWithdrawalInfo');
     }
+
+
 }

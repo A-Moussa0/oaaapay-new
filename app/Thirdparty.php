@@ -19,4 +19,19 @@ class Thirdparty extends Model
     {
         return $this->hasMany('App\ThirdpartySurvey');
     }
+
+    public function surveyRecords()
+    {
+        return $this->hasManyThrough('App\ThirdpartySurveyRecord', 'App\ThirdpartySurvey');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany('App\ThirdpartyTask');
+    }
+
+    public function taskRecords()
+    {
+        return $this->hasManyThrough('App\ThirdpartyTaskRecord', 'App\ThirdpartyTask');
+    }
 }

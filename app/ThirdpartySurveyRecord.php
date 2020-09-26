@@ -6,5 +6,36 @@ use Illuminate\Database\Eloquent\Model;
 
 class ThirdpartySurveyRecord extends Model
 {
-    //
+    /**
+        * The attributes that are mass assignable.
+        *
+        * @var array
+    */
+    protected $fillable = [
+        'user_id', 'thirdparty_survey_id', 'transaction_id', 'uuid', 'action', 'ip', 'reward', 'credit_date', 'declined_at', 'status', 'duration', 'rating', 'rating_count',
+    ];
+
+    /**
+        * The attributes that should be cast to native types.
+        *
+        * @var array
+    */
+    protected $casts = [
+        'declined_at' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function thirdpartySurvey()
+    {
+        return $this->belongsTo('App\ThirdpartySurvey');
+    }
+
+    public function commissionRecord()
+    {
+        return $this->morphOne('App\CommissionRecord', 'sourcable');
+    }
 }
