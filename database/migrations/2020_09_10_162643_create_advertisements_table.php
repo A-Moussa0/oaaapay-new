@@ -17,11 +17,11 @@ class CreateAdvertisementsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('type_id');
-            $table->string('name', 100);
+            $table->string('title', 100);
             $table->string('description', 255);
             $table->integer('click_count')->unsigned()->default(0);
             $table->integer('completed_count')->unsigned()->default(0);
-            $table->timestamp('approve_date')->nullable();
+            $table->timestamp('approved_at')->nullable();
             $table->tinyInteger('paused')->default(1);
             $table->integer('remaining_views')->nullable();
             $table->json('gender')->nullable();
