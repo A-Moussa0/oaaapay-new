@@ -15,6 +15,7 @@ class AddMerchantsForeignKeys extends Migration
     {
         Schema::table('merchants', function (Blueprint $table) {
             $table->foreign('industry_id')->references('id')->on('industries');
+            $table->foreign('account_manager_id')->references('id')->on('account_manager');
         });
     }
 
@@ -27,6 +28,7 @@ class AddMerchantsForeignKeys extends Migration
     {
         Schema::table('merchants', function (Blueprint $table) {
             $table->dropForeign(['industry_id']);
+            $table->dropForeign(['account_manager_id']);
         });
     }
 }
