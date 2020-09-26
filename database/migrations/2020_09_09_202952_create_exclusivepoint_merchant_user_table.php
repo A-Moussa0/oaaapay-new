@@ -17,7 +17,7 @@ class CreateExclusivepointMerchantUserTable extends Migration
             $table->id();
             $table->unsignedbigInteger('user_id');
             $table->unsignedbigInteger('merchant_id');
-            $table->integer('points')->unsigned();
+            $table->integer('exclusive_points')->unsigned();
             $table->timestamps();
         });
     }
