@@ -5,11 +5,14 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Joselfonseca\LighthouseGraphQLPassport\HasLoggedInTokens;
+use Joselfonseca\LighthouseGraphQLPassport\MustVerifyEmailGraphQL;
+use Joselfonseca\LighthouseGraphQLPassport\HasSocialLogin;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, HasSocialLogin, MustVerifyEmailGraphQL, HasLoggedInTokens;
 
     /**
         * The attributes that are mass assignable.
@@ -17,7 +20,7 @@ class User extends Authenticatable
         * @var array
     */
     protected $fillable = [
-        'email', 'referrer_id', 'membership_id', 'password', 'mobile', 'signup_ip', 'username', 'registration_date', 'email_verified_at', 'mobile_verified_at', 'avatar', 'provider_id', 'provider', 'remember_token', 'created_at', 'updated_at', 'source',
+        'email', 'referrer_id', 'membership_id', 'password', 'mobile', 'signup_ip', 'username', 'email_verified_at', 'mobile_verified_at', 'avatar', 'provider_id', 'provider', 'remember_token', 'created_at', 'updated_at', 'source', 'last_active',
     ];
 
     /**
@@ -134,4 +137,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Membership');
     }
-    }
+}
