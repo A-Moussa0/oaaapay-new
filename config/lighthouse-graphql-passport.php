@@ -30,7 +30,7 @@ return [
     | the default location
     |
     */
-    'schema' => base_path('graphql/auth.graphql'),
+    'schema' => base_path('graphql/schema.graphql'),
     /*
     |--------------------------------------------------------------------------
     | Username Column
@@ -63,6 +63,23 @@ return [
     */
     'verify_email' => [
         'base_url' => env('FRONT_URL').'/email-verify',
+    ],
+
+ /*
+    |--------------------------------------------------------------------------
+    | Authentication middleware
+    |--------------------------------------------------------------------------
+    |
+    | @guard the fields that should be blocked from public access in the schema
+    |
+    */
+
+    'route' => [
+        'middleware' => [
+            \Illuminate\Cookie\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+        ],
     ],
 
 ];
