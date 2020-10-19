@@ -19,7 +19,8 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'referrer_id' => $faker->numberBetween($min = 1, $max = 100),
+        'first_name' => $faker->firstName($gender = null),
+        'last_name' => $faker->lastName(),
         'mobile' => $faker->unique()->e164PhoneNumber,
         'email' => $faker->unique()->safeEmail,
         'points_balance' => $faker->numberBetween($min = 0, $max = 50000),
