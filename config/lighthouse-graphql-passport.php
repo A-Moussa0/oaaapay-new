@@ -30,7 +30,7 @@ return [
     | the default location
     |
     */
-    'schema' => base_path('graphql/schema.graphql'),
+    'schema' => base_path('app/GraphQL/schema.graphql'),
     /*
     |--------------------------------------------------------------------------
     | Username Column
