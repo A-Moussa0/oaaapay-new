@@ -1,0 +1,51 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+#import Mutations/*.graphql
+#import Queries/*.graphql
+
+type User {
+    id: ID!
+    referrer_id: ID
+    membership_id: ID!
+    email: String!
+    first_name: String
+    last_name: String
+    mobile: String
+    points_balance: Int
+    pending_points_balance: Int
+    total_commissions: Int
+    pending_commissions: Int
+    withdrawn_points: Int
+    last_active: DateTime
+    suspended: Boolean
+    pioneer: Boolean
+    total_ads_watched: Int
+    bypass_ip_check: Boolean
+    no_referrals: Boolean
+    redeemed_points: Int
+    offers_bought: Int
+    tasks_completed: Int
+    surveys_completed: Int
+    signup_ip: String!
+    username: String
+    automatic_withdrawal: Boolean
+    source: String
+    remember_token: String
+    provider: String
+    provider_id: String
+    avatar: String
+    email_verified_at: DateTime
+    mobile_verified_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Query {
+    users: [User!]! @paginate(defaultCount: 10)
+    user(id: ID @eq): User @guard(with:["api"]) @find
+    loggedinUser: User! @auth(guard: "api")
+}
