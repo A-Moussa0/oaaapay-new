@@ -13,6 +13,7 @@ class Offer extends Model
     */
     protected $fillable = [
         'merchant_id', 'name', 'expire_date', 'favorite_count', 'is_online', 'is_delivery', 'is_store', 'disabled', 'type', 'cost', 'multiple_use', 'cashback_percentage', 'bonus_cashback_percentage',
+    ];
 
     public function records()
     {
