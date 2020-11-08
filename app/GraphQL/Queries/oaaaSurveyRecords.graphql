@@ -1,0 +1,18 @@
+type OaaaSurveyRecord @modelClass(class: "\\App\\FeedbackSurveyRecord") {
+    id: ID!
+    user: User @belongsTo
+    feedback_survey_id: ID!
+    reward: Int!
+    credit_status: String
+    credit_date: DateTime
+    answer_date: DateTime
+    opened_at: DateTime
+    declined_at: DateTime
+    decline_reason: String
+    response_id: String
+}
+
+extend type User {
+    oaaaSurveyRecords: [OaaaSurveyRecord!]! @hasMany(relation: "feedbackSurveyRecords")
+    oaaaSurveyRecordsCount: Int! @count(relation: "feedbackSurveyRecords")
+}
